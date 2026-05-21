@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coffee House</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+
+<body class="bg-[#f8f5f2] text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-[#3E2723] text-white fixed w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <h1 class="text-2xl font-bold">
+        Coffee House
+      </h1>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-8">
+        <li><a href="#home" class="hover:text-yellow-400">Home</a></li>
+        <li><a href="#menu" class="hover:text-yellow-400">Menu</a></li>
+        <li><a href="#cart" class="hover:text-yellow-400">Cart</a></li>
+        <li><a href="#contact" class="hover:text-yellow-400">Contact</a></li>
+      </ul>
+
+      <!-- Mobile Button -->
+      <button id="menu-btn" class="md:hidden text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#4E342E] px-6 pb-4">
+      <ul class="flex flex-col gap-4">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#cart">Cart</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section
+    id="home"
+    class="h-screen bg-cover bg-center flex items-center justify-center text-white"
+    style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1400');"
+  >
+
+    <div class="bg-black/60 p-10 rounded-xl text-center max-w-2xl">
+
+      <h2 class="text-5xl md:text-6xl font-bold mb-6">
+        Fresh Coffee Everyday
+      </h2>
+
+      <p class="text-lg mb-8">
+        Enjoy handcrafted coffee with premium beans and cozy vibes.
+      </p>
+
+      <button
+        id="order-now-btn"
+        class="bg-yellow-500 hover:bg-yellow-600 px-8 py-3 rounded-lg text-lg font-semibold transition"
+      >
+        Order Now
+      </button>
+
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-20 px-6">
+
+    <h2 class="text-4xl font-bold text-center mb-12">
+      Our Menu
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+      <!-- Espresso -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition duration-300">
+
+        <img
+          src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1200"
+          class="h-64 w-full object-cover"
+        >
+
+        <div class="p-6 text-center">
+
+          <h3 class="text-2xl font-bold mb-2">
+            Espresso
+          </h3>
+
+          <p class="text-yellow-700 text-xl font-semibold mb-4">
+            ₹150
+          </p>
+
+          <button
+            class="add-cart bg-[#3E2723] text-white px-5 py-2 rounded-lg"
+            data-name="Espresso"
+            data-price="150"
+          >
+            Add To Cart
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Cappuccino -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition duration-300">
+
+        <img
+          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200"
+          class="h-64 w-full object-cover"
+        >
+
+        <div class="p-6 text-center">
+
+          <h3 class="text-2xl font-bold mb-2">
+            Cappuccino
+          </h3>
+
+          <p class="text-yellow-700 text-xl font-semibold mb-4">
+            ₹200
+          </p>
+
+          <button
+            class="add-cart bg-[#3E2723] text-white px-5 py-2 rounded-lg"
+            data-name="Cappuccino"
+            data-price="200"
+          >
+            Add To Cart
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Latte -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition duration-300">
+
+        <img
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200"
+          class="h-64 w-full object-cover"
+        >
+
+        <div class="p-6 text-center">
+
+          <h3 class="text-2xl font-bold mb-2">
+            Latte
+          </h3>
+
+          <p class="text-yellow-700 text-xl font-semibold mb-4">
+            ₹180
+          </p>
+
+          <button
+            class="add-cart bg-[#3E2723] text-white px-5 py-2 rounded-lg"
+            data-name="Latte"
+            data-price="180"
+          >
+            Add To Cart
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Cart Section -->
+  <section id="cart" class="py-20 px-6 bg-[#EFEBE9]">
+
+    <h2 class="text-4xl font-bold text-center mb-10">
+      Your Cart
+    </h2>
+
+    <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+      <div id="cart-items" class="space-y-4">
+        <p class="text-gray-500">
+          No items added.
+        </p>
+      </div>
+
+      <div class="mt-8 flex justify-between items-center">
+
+        <h3 class="text-2xl font-bold">
+          Total: ₹<span id="cart-total">0</span>
+        </h3>
+
+        <button
+          id="checkout-btn"
+          class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg"
+        >
+          Checkout
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section
+    id="about"
+    class="py-20 bg-white px-6"
+  >
+
+    <div class="max-w-5xl mx-auto text-center">
+
+      <h2 class="text-4xl font-bold mb-6">
+        About Us
+      </h2>
+
+      <p class="text-lg leading-8 text-gray-700">
+        Coffee House serves handcrafted coffee made with premium beans.
+        Relax, refresh and enjoy every sip with us.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6">
+
+    <h2 class="text-4xl font-bold text-center mb-10">
+      Contact Us
+    </h2>
+
+    <!-- Contact Details -->
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg mb-8">
+
+      <h3 class="text-2xl font-bold mb-4">
+        Coffee House Details
+      </h3>
+
+      <p class="mb-2">
+        <strong>Phone:</strong> +91 98765 43210
+      </p>
+
+      <p class="mb-2">
+        <strong>Email:</strong> coffeehouse@gmail.com
+      </p>
+
+      <p>
+        <strong>Address:</strong> Chennai, Tamil Nadu
+      </p>
+
+    </div>
+
+    <!-- Contact Form -->
+    <form
+      id="contact-form"
+      class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg"
+    >
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <input
+          id="name"
+          type="text"
+          placeholder="Your Name"
+          class="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+        >
+
+        <input
+          id="email"
+          type="email"
+          placeholder="Your Email"
+          class="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+        >
+
+      </div>
+
+      <textarea
+        id="message"
+        rows="5"
+        placeholder="Message"
+        class="border p-3 rounded-lg w-full mt-6 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+      ></textarea>
+
+      <button
+        class="bg-[#3E2723] hover:bg-[#5D4037] text-white px-6 py-3 rounded-lg mt-6 w-full transition"
+      >
+        Send Message
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#3E2723] text-white py-6 text-center">
+    <p>© 2026 Coffee House. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
